@@ -1,9 +1,12 @@
 #! /usr/bin/env osascript -l JavaScript
 
 /* Lists keyboard shortcuts in System Preferences > Keyboard Preferences 
- * and FastScripts > Preferences,
+ * and FastScripts > Preferences.
  */
 
+/*-------|---------|---------|---------|---------|---------|---------|---------|
+
+/*--Setup---------------------------------------------------------------------*/
 var curApp = Application.currentApplication();
 curApp.includeStandardAdditions = true;
 
@@ -14,6 +17,7 @@ var sysPrefsP = sysEvs.applicationProcesses.byName("System Preferences");
 var kb1 = sysPrefsP.windows.byName("Keyboard");
 var tblOutline = 
 	kb1.tabGroups[0].splitterGroups[0].scrollAreas[1].outlines[0];
+	console.log(tblOutline.role());
 
 //	tblOutline.rows[2].uiElements[1].uiElements.class();	
 		// ["staticText", "staticText", "uiElement"]
