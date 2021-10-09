@@ -25,13 +25,15 @@ for(let i = 0; i<kbwOutline.rows.length; i++){
 	let numTextFields = 
 		cell2.uiElements.whose( {description: 'text field'} ).length;
 	if (numTextFields > 0) {
-		
+
 		let cellNumStr = 
 			'cell[' + String(i) + ']:';
 		let cellNumStrPadded = 
 			cellNumStr + ' '.repeat(10-cellNumStr.length);
 		let commandStr =
-			 cell2.uiElements.whose({description: 'text field'} )[0].value();
+			cell2.uiElements.whose(
+				 {description: 'text field'} 
+			)[0].value();
 		let commandStrPadded = 
 			commandStr + ' '.repeat(40-commandStr.length);
 		let shortcut = cell2.uiElements.whose(
