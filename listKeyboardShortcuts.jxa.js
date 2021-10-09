@@ -24,8 +24,9 @@ let kbwOutline =
    a disclosure triangle or a command with its shortcut. */
 
 for(let i = 0; i<kbwOutline.rows.length; i++){
-	let cell2 = 
-		kbwOutline.rows[i].uiElements.whose( {description: "cell"} )[1];
+	let cell2 =  kbwOutline.rows[i].uiElements.whose(
+		{description: "cell"}
+	)[1];
 	let numTextFields = 
 		cell2.uiElements.whose( {description: 'text field'} ).length;
 	if (numTextFields > 0) {
