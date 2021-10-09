@@ -25,21 +25,25 @@ for(let i = 0; i<kbwOutline.rows.length; i++){
 	let numTextFields = 
 		cell2.uiElements.whose( {description: 'text field'} ).length;
 	if (numTextFields > 0) {
-		console.log('cell[' + i + ']: Command:',
-			cell2.uiElements.whose(
-				{description: 'text field'} 
-			)[0].value() + '; short cut:',
-			cell2.uiElements.whose(
-				{description: 'text field'} 
-			)[numTextFields-1].value());
+		
+		let cellNumStr = 
+			'cell[' + String(i) + ']:';
+		let cellNumStrPadded = 
+			cellNumStr + ' '.repeat(10-cellNumStr.length);
+		let commandStr =
+			 cell2.uiElements.whose({description: 'text field'} )[0].value();
+		let commandStrPadded = 
+			commandStr + ' '.repeat(40-commandStr.length);
+		let shortcut = cell2.uiElements.whose(
+			{description: 'text field'} 
+		)[numTextFields-1].value();
+
+		console.log(cellNumStrPadded +  commandStrPadded + shortcut);
+			
 	}
 }
-//for (let i = 0; i < kbwOutline.rows[0].cells[i].length; i++) {
-	//kbwOutline.rows[i].uiElements.description();
-//	console.log("i:", i, kbwOutline.rows[0].cells[i].uiElements.description() );
-//}
-exit0();
-
+exit0(); /* we don't need this, but it may be useful if we wish to
+		end the program early (while debugging, say) */
 /*--Functions-----------------------------------------------------------------*/
 function exit0() {
 	return(
