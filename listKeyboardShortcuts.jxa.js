@@ -31,8 +31,10 @@ for (let i = 0; i<kbwOutline.rows.length; i++){
 		{description: 'text field'}
 	).length;
 
-	if (numTextFields > 0) {
+	if (numTextFields > 0) {	//(numTextFields > 0)
 		printCellCommandAndShortcut(i, cell2, numTextFields);
+	} else {
+		printAppName(i, cell2);
 	}
 }
 /* exit0(); 
@@ -40,22 +42,27 @@ for (let i = 0; i<kbwOutline.rows.length; i++){
 	end the program early (i.e., while debugging) */
 /*--Functions-----------------------------------------------------------------*/
 
+function printAppName(i, cell2) {
+	console.log(
+//		'Row', String(i) + ' '.repeat(3-String(i).length) +
+		'Application: ' + cell2.uiElements[0].value()
+	);
+}
+
 // Print formatted row containing row number, command and shortcut
 function printCellCommandAndShortcut(i, cell2, numTextFields) {
-	let cellNumStr = 'Row ' + String(i) + 
-		' '.repeat(3-String(i).length) + ' command:';
-	let cellNumStrPadded = 
-		cellNumStr + ' '.repeat(18-cellNumStr.length);
-	let commandStr = cell2.uiElements.whose(
+	///let cellNumStr = '\tCommand:'; //'Row ' + String(i) + 	
+	let commandStr = '\tCommand:' + cell2.uiElements.whose(
 		{description: 'text field'} 
 	)[0].value();
+	//console.log(commandStr.length);
 	let commandStrPadded = commandStr + 
-		' '.repeat(35-commandStr.length);
+		' '.repeat(60-commandStr.length);
 	let shortcut = cell2.uiElements.whose(
 		{description: 'text field'} 
 	)[numTextFields-1].value();
 
-	console.log(cellNumStrPadded +  commandStrPadded + shortcut);
+	console.log(commandStrPadded + shortcut);
 }
 
 function exit0() {
