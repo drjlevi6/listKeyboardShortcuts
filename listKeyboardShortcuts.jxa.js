@@ -20,8 +20,8 @@ var kbWindow =
 let kbwOutline = 
 	kbWindow.uiElements[1].uiElements[9].uiElements[2].uiElements[0];
 		
-/* each table row contains 2 cells; second cell contains either 
-   a disclosure triangle or a command with its shortcut. */
+/* each table row contains 2 cells; second cell contains either a 
+   disclosure triangle or text fields with a command and its shortcut. */
 
 for (let i = 0; i<kbwOutline.rows.length; i++){
 	let cell2 =  kbwOutline.rows[i].uiElements.whose(
@@ -35,8 +35,8 @@ for (let i = 0; i<kbwOutline.rows.length; i++){
 		printCellCommandAndShortcut(i, cell2, numTextFields);
 	}
 }
-exit0(); /* we don't need this, but it may be useful if we wish to
-		end the program early (while debugging, say) */
+/* exit0(); we don't need this currently, but it may be useful if we wish to
+		end the program early (i.e., while debugging) */
 /*--Functions-----------------------------------------------------------------*/
 
 // Print formatted row containing
