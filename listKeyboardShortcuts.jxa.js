@@ -23,14 +23,14 @@ let kbwOutline =
 /* each table row contains 2 cells; second cell contains either 
    a disclosure triangle or a command with its shortcut. */
 
-for(let i = 0; i<kbwOutline.rows.length; i++){
+for (let i = 0; i<kbwOutline.rows.length; i++){
 	let cell2 =  kbwOutline.rows[i].uiElements.whose(
 		{description: "cell"}
 	)[1];
 	let numTextFields = cell2.uiElements.whose(
 		{description: 'text field'}
 	).length;
-	
+
 	if (numTextFields > 0) {
 		printCellCommandAndShortcut(i, cell2, numTextFields);
 	}
@@ -41,18 +41,17 @@ exit0(); /* we don't need this, but it may be useful if we wish to
 
 // Print formatted row containing
 function printCellCommandAndShortcut(i, cell2, numTextFields) {
-	let cellNumStr = 
-	'Row ' + String(i) + ':';
+	let cellNumStr = 'Row ' + String(i) + 
+		' '.repeat(3-String(i).length) + ' command:';
 	let cellNumStrPadded = 
-	cellNumStr + ' '.repeat(9-cellNumStr.length);
-	let commandStr =
-	cell2.uiElements.whose(
+		cellNumStr + ' '.repeat(18-cellNumStr.length);
+	let commandStr = cell2.uiElements.whose(
 		{description: 'text field'} 
 	)[0].value();
-	let commandStrPadded = 
-	commandStr + ' '.repeat(35-commandStr.length);
+	let commandStrPadded = commandStr + 
+		' '.repeat(35-commandStr.length);
 	let shortcut = cell2.uiElements.whose(
-	{description: 'text field'} 
+		{description: 'text field'} 
 	)[numTextFields-1].value();
 
 	console.log(cellNumStrPadded +  commandStrPadded + shortcut);
