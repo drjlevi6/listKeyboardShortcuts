@@ -12,22 +12,25 @@ var curApp = Application.currentApplication();
 /*--Main----------------------------------------------------------------------*/
 var sysEvents = Application('System Events');
 curApp.includeStandardAdditions = true;
-var sysPrefs = sysEvents.applicationProcesses.byName("System Preferences");
+var sysPrefs = 
+	sysEvents.applicationProcesses.byName("System Preferences");
 
-var kbWindow = sysPrefs.windows.byName("Keyboard");
-let kbwOutline = kbWindow.uiElements[1].uiElements[9].uiElements[2].uiElements[0];
+var kbWindow = 
+	sysPrefs.windows.byName("Keyboard");
+let kbwOutline = 
+	kbWindow.uiElements[1].uiElements[9].uiElements[2].uiElements[0];
 		
-/* each table row contains 2 cells; second cell contains either a disclosure 
-   triangle or a command with its shortcut. */
+/* each table row contains 2 cells; second cell contains either 
+   a disclosure triangle or a command with its shortcut. */
 
 for(let i = 0; i<kbwOutline.rows.length; i++){
-	let cell2 = kbwOutline.rows[i].uiElements.whose( {description: "cell"} )[1];
+	let cell2 = 
+		kbwOutline.rows[i].uiElements.whose( {description: "cell"} )[1];
 	let numTextFields = 
 		cell2.uiElements.whose( {description: 'text field'} ).length;
 	if (numTextFields > 0) {
-			printCellCommandAndShortcut(i, cell2, numTextFields);
+		printCellCommandAndShortcut(i, cell2, numTextFields);
 	}
-
 }
 exit0(); /* we don't need this, but it may be useful if we wish to
 		end the program early (while debugging, say) */
@@ -51,6 +54,7 @@ function printCellCommandAndShortcut(i, cell2, numTextFields) {
 
 	console.log(cellNumStrPadded +  commandStrPadded + shortcut);
 }
+
 function exit0() {
 	return(
 		curApp.doShellScript('echo 0; exit 0')
