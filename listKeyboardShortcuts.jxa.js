@@ -1,0 +1,1 @@
+/Users/jonathan/bin/listKeyboardShortcuts.jxa.js
