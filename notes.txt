@@ -1,0 +1,6 @@
+One or more miscellaneous notes re JS and JXA:
+
+• console.log writes to standard error, not standard output. Any redirections 
+  must be based accordingly.
+
+• Expressions such as "Application.currentApplication()" are functions.
