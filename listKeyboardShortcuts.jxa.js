@@ -24,7 +24,7 @@ let kbwOutline =
    disclosure triangle or text fields with a command and its shortcut. */
 
 for (let i = 0; i<kbwOutline.rows.length; i++){
-	let cell2 =  kbwOutline.rows[i].uiElements.whose(
+	let cell2 = kbwOutline.rows[i].uiElements.whose(
 		{description: "cell"}
 	)[1];
 	let numTextFields = cell2.uiElements.whose(
@@ -35,11 +35,12 @@ for (let i = 0; i<kbwOutline.rows.length; i++){
 		printCellCommandAndShortcut(i, cell2, numTextFields);
 	}
 }
-/* exit0(); we don't need this currently, but it may be useful if we wish to
-		end the program early (i.e., while debugging) */
+/* exit0(); 
+	we don't need this currently, but it may be useful if we wish to
+	end the program early (i.e., while debugging) */
 /*--Functions-----------------------------------------------------------------*/
 
-// Print formatted row containing
+// Print formatted row containing row number, command and shortcut
 function printCellCommandAndShortcut(i, cell2, numTextFields) {
 	let cellNumStr = 'Row ' + String(i) + 
 		' '.repeat(3-String(i).length) + ' command:';
