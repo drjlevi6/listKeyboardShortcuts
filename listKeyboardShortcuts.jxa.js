@@ -1,15 +1,13 @@
 #! /usr/bin/env osascript -l JavaScript
 
-/* Lists keyboard shortcuts in System Preferences > Keyboard Preferences 
- * and FastScripts > Preferences.
+/* Lists keyboard shortcuts by application in System Preferences > 
+ * Keyboard Preferences.
  */
 
 /*-------|---------|---------|---------|---------|---------|---------|---------|
 
 /*--Setup---------------------------------------------------------------------*/
 var curApp = Application.currentApplication();
-
-/*--Main----------------------------------------------------------------------*/
 var sysEvents = Application('System Events');
 curApp.includeStandardAdditions = true;
 var sysPrefs = 
@@ -19,10 +17,10 @@ var kbWindow =
 	sysPrefs.windows.byName("Keyboard");
 let kbwOutline = 
 	kbWindow.uiElements[1].uiElements[9].uiElements[2].uiElements[0];
-		
+
+/*--Main----------------------------------------------------------------------*/		
 /* each table row contains 2 cells; second cell contains either a 
    disclosure triangle or text fields with a command and its shortcut. */
-
 for (let i = 0; i<kbwOutline.rows.length; i++){
 	let cell2 = kbwOutline.rows[i].uiElements.whose(
 		{description: "cell"}
@@ -31,7 +29,7 @@ for (let i = 0; i<kbwOutline.rows.length; i++){
 		{description: 'text field'}
 	).length;
 
-	if (numTextFields > 0) {	//(numTextFields > 0)
+	if (numTextFields > 0) {
 		printCellCommandAndShortcut(i, cell2, numTextFields);
 	} else {
 		printAppName(i, cell2);
