@@ -41,10 +41,7 @@ for (let i = 0; i<kbwOutline.rows.length; i++){
 /*--Functions-----------------------------------------------------------------*/
 
 function printAppName(i, cell2) {
-	console.log(
-//		'Row', String(i) + ' '.repeat(3-String(i).length) +
-		'Application: ' + cell2.uiElements[0].value()
-	);
+	console.log( 'Application: ' + cell2.uiElements[0].value() );
 }
 
 // Print formatted row containing row number, command and shortcut
