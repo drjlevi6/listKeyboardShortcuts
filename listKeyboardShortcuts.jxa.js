@@ -48,29 +48,25 @@ function printAppName(i, cell2) {
 }
 
 // Print formatted row containing row number, command and shortcut
-function printCellCommandAndShortcut(i, cell2, numTextFields) {
-	///let cellNumStr = '\tCommand:'; //'Row ' + String(i) + 	
+function printCellCommandAndShortcut(i, cell2, numTextFields) {	
 	let commandStr = '\tCommand: ' + cell2.uiElements.whose(
 		{description: 'text field'} 
 	)[0].value();
-	//console.log(commandStr.length);
 	let commandStrPadded = commandStr + 
 		' '.repeat(60-commandStr.length);
 	let shortcut = cell2.uiElements.whose(
 		{description: 'text field'} 
 	)[numTextFields-1].value();
-	//.split();
 
-	console.log( /* seems easiest way to put spaces between the chars;
-			split().join() doesn't work */
+	/* Following seems to be easiest way to put spaces between 
+	   the chars; split().join() doesn't work */
+	console.log(
 		commandStrPadded, shortcut[0], (shortcut[1]),
-		((shortcut[2]) ? shortcut[2] + ' ' : '') +
+		((shortcut[2]) ? (shortcut[2] + ' ') : '') +
 		((shortcut[13]) ? shortcut[3] : '')
 	);
 }
 
 function exit0() {
-	return(
-		curApp.doShellScript('echo 0; exit 0')
-	);
+	return( curApp.doShellScript('echo 0; exit 0') );
 }
