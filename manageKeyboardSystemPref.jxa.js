@@ -33,7 +33,7 @@ function selectShortcutsTab(sysPrefsWin) {
 	let shortCutsRadioButton = 
 		sysPrefsWin.tabGroups()[0].radioButtons.byName('Shortcuts');
 	let [shortCutsX, shortCutsY] = 
-		shortCutsRadioButton.position(); // no coercion needed; reason?
+		shortCutsRadioButton.position(); // no coercion needed;. Why?
 	curApp.doShellScript(
 		'/usr/local/bin/cliclick c:' + 
 		(shortCutsX+30) + ',' + (shortCutsY+10) 
@@ -43,7 +43,7 @@ function selectShortcutsTab(sysPrefsWin) {
 function revealKeyboardPane(keyboardPane) {
 	let panePosition = keyboardPane.position();	
 	let paneCoordsString = 
-		String(panePosition).split(',');    // coercion is necessary
+		String(panePosition).split(',');    // coercion is needed
 	let [panePosX, panePosY] = [
 		parseInt(paneCoordsString[0]),
 		parseInt(paneCoordsString[1]) 
