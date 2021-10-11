@@ -43,11 +43,14 @@ function selectShortcutsTab(sysPrefsWin) {
 function revealKeyboardPane(keyboardPane) {
 	let panePosition = keyboardPane.position();	
 	let paneCoordsString = 
-		String(panePosition).split(',');	// coercion is necessary
-	let [panePosX, panePosY] = 
-		[ parseInt(paneCoordsString[0]), parseInt(paneCoordsString[1]) ];	
+		String(panePosition).split(',');    // coercion is necessary
+	let [panePosX, panePosY] = [
+		parseInt(paneCoordsString[0]),
+		parseInt(paneCoordsString[1]) 
+	];	
 	curApp.doShellScript( 
-		'/usr/local/bin/cliclick c:' +  (panePosX+30) + ',' + (panePosY+20)
+		'/usr/local/bin/cliclick c:' +  
+		(panePosX+30) + ',' + (panePosY+20)
 	);	// loads shortcuts view
 }
 
@@ -58,6 +61,8 @@ function getAndActivateSysPrefsWindow() {
 
 function getKeyboardPane(sysPrefsWin) {
 	let keyboardPanes =
-		sysPrefsWin.scrollAreas[0].uiElements.whose( {name: "Keyboard"} );	
+		sysPrefsWin.scrollAreas[0].uiElements.whose(
+			{name: "Keyboard"}
+		);	
 	return keyboardPanes[0];
 }
