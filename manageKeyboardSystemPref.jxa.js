@@ -33,7 +33,7 @@ function selectShortcutsTab(sysPrefsWin) {
 	let shortCutsRadioButton = 
 		sysPrefsWin.tabGroups()[0].radioButtons.byName('Shortcuts');
 	let [shortCutsX, shortCutsY] = 
-		shortCutsRadioButton.position(); // no coercion needed;. Why?
+		shortCutsRadioButton.position(); // no coercion needed. Why?
 	curApp.doShellScript(
 		'/usr/local/bin/cliclick c:' + 
 		(shortCutsX+30) + ',' + (shortCutsY+10) 
